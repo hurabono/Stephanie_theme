@@ -1,0 +1,84 @@
+{% assign image = section.settings.image %}
+
+<section class="swiper mySwiper">
+      <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+            {% render 'section-slide',
+            class:'swiper-slide'
+            image: block.settings.image
+            headline: block.settings.headline
+            text: block.settings.text
+            button-url: block.settings.button-url
+            button-text: block.settings.button-text
+            %}
+            {% endfor %}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination" style="bottom:60px;"></div>
+</section>
+
+
+{% schema %}
+{
+"name": "Slideshow",
+"class": "shopify-section-vue",
+"blocks": [
+{
+
+"type": "slideshow",
+"name": "slideshow",
+"limit": 3,
+"settings": [
+
+{
+"type": "image_picker",
+"id": "image",
+"label": "t:common.image"
+},
+{
+"type": "text",
+"id": "headline",
+"label": "t:common.headline",
+"default": "Headline"
+},
+{
+"type": "textarea",
+"id": "text",
+"label": "t:common.text",
+"default": "Slideshow"
+},
+{
+"type": "url",
+"id": "button-url",
+"label": "t:common.button.url"
+},
+{
+"type": "text",
+"id": "button-text",
+"label": "t:common.button.text",
+"default": "Button"
+}
+
+]
+}
+],
+"presets": [
+{
+"name": "Slideshow",
+"category": "Images",
+"blocks": [
+{
+"type": "slideshow"
+},
+{
+"type": "slideshow"
+},
+{
+"type": "slideshow"
+}
+]
+}
+]
+}
+{% endschema %}

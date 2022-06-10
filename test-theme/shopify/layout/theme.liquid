@@ -20,13 +20,11 @@
   <link rel="canonical" href="{{ canonical_url }}">
   {% endif %}
   
-  {{ header_font | font_face }}
-  {{ base_font | font_face }}
 
-  {%- unless settings.base_font_new.system? -%}
+  {%- unless settings.base_font_new.system -%}
   <link rel="preload" as="font" href="{{ settings.base_font_new | font_url }}" type="font/woff2" crossorigin>
 {%- endunless -%}
-{%- unless settings.header_font_new.system? -%}
+{%- unless settings.header_font_new.system -%}
   <link rel="preload" as="font" href="{{ settings.header_font_new | font_url }}" type="font/woff2" crossorigin>
 {%- endunless -%}
 
@@ -44,11 +42,11 @@
   
 </head>
 
-<!-- {{ header_font_bold | font_face }}
+{{ header_font_bold | font_face }}
 {{ base_font_bold | font_face }}
 {{ base_font_italic | font_face }}
 {{ base_font_bold_italic | font_face }}
- -->
+
 
 
 <body class="min-h-screen">
